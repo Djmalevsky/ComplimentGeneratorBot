@@ -14,6 +14,7 @@ def upload_and_process_csv(request):
             custom_prompt = form.cleaned_data.get('compliment_prompt', '')  # Get the custom prompt
             temperature = form.cleaned_data.get('temperature', 0.7)  # Default to 0.7 if not provided
             GPT_Version = form.cleaned_data.get('GPT_Version', 'text-davinci-003')
+            key = form.cleaned_data.get('key', '')
             csv_file.seek(0)
             reader = csv.DictReader(csv_file.read().decode('utf-8-sig').splitlines())
             output = StringIO()
@@ -28,7 +29,7 @@ def upload_and_process_csv(request):
                 url = row['Website']
                 content = scrape_website(url)
                 if content:
-                    compliment = generate_compliment(content, company_name, custom_prompt, temperature, GPT_Version)
+                    compliment = generate_compliment(content, company_name, custom_prompt, temperature, GPT_Version, key)
                     scrape_status = 'Success'
                 else:
                     compliment = generate_generic_compliment(company_name, city, state)

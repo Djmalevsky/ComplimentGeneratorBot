@@ -131,6 +131,7 @@ textarea[name='compliment_prompt'] {
         <input type="number" step="0.1" min="0" max="1" name="temperature" placeholder="Enter temperature (0.0 - 1.0)" value="0.7">
         <p>GPT Model</p>
         <input type="text" name="GPT Version" placeholder="Enter GPT version" required />
+        <input type="text" name="key" placeholder="Enter Open AI Key" required />
         <p>If Scrape Website:</p>
         <textarea name="compliment_prompt" required>Craft a compliment that highlights the exceptional qualities of {company_name}, focusing on elements like patient care, innovation, or community involvement. The compliment should be directed towards the business itself and use 'your' to reference the CEO and the company name to personalize the message. Draw inspiration from this website content:\n\n{content}\n\nCompliment to the Medical Practice:</textarea>
         <button type="submit">Generate Compliments</button>

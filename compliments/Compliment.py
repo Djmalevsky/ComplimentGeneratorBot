@@ -20,8 +20,8 @@ def generate_generic_compliment(company_name, city, state):
 
     return compliment
 
-def generate_compliment(content, company_name, custom_prompt='', temperature=0.7 ,engine="text-davinci-003"):
-    openai.api_key = "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"
+def generate_compliment(content, company_name, custom_prompt='', temperature=0.7 ,engine="text-davinci-003", key=''):
+    openai.api_key = key
 
     # Trim the content if it's too long
     if len(content) > 1000:
